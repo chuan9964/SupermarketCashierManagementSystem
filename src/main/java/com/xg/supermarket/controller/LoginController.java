@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName LoginController.java
  * @Description 登录控制器
- * @createTime 2021年07月01日 08:22:00
+ * @createTime 2023年07月01日 08:22:00
  */
 @Controller
 public class LoginController {

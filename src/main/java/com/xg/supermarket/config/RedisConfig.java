@@ -13,11 +13,11 @@
 //import org.springframework.data.redis.serializer.StringRedisSerializer;
 //
 ///**
-// * @author 村头老杨头
+// * @author chuan9964
 // * @version 1.0.0
 // * @ClassName RedisConfig.java
 // * @Description Redis配置
-// * @createTime 2021年07月02日 11:03:00
+// * @createTime 2023年07月02日 11:03:00
 // */
 //@Configuration
 //public class RedisConfig {

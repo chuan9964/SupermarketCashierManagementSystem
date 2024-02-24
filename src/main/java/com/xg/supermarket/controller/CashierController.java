@@ -38,8 +38,8 @@ public class CashierController {
     /**
      * @title 获取挂单的数据
      * @description 
-     * @author 村头老杨头 
-     * @updateTime 2021/7/1 10:51 
+     * @author chuan9964 
+     * @updateTime 2023/7/1 10:51 
      * @throws 
      */
     @RequiresPermissions("cashier:goods")
@@ -58,8 +58,8 @@ public class CashierController {
     /**
      * @title 收银减商品
      * @description 
-     * @author 村头老杨头 
-     * @updateTime 2021/7/1 10:57
+     * @author chuan9964 
+     * @updateTime 2023/7/1 10:57
      * @throws 
      */
     @RequiresPermissions("cashier:subGoods")

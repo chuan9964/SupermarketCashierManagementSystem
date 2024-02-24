@@ -105,8 +105,8 @@ public class ReceiptsController {
     /**
      * @title findReceiptsFile
      * @description 查询单据文件集合
-     * @author 村头老杨头 
-     * @updateTime 2021/6/29 10:45 
+     * @author chuan9964 
+     * @updateTime 2023/6/29 10:45 
      * @throws 
      */
     @RequiresPermissions("receipts:getFile")

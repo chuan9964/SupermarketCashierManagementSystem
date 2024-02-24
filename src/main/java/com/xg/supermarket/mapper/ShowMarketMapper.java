@@ -10,18 +10,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName ShowMarket.java
  * @Description 查询销售数据
- * @createTime 2021年06月30日 09:32:00
+ * @createTime 2023年06月30日 09:32:00
  */
 @Repository
 public interface ShowMarketMapper extends Mapper<ShowMarketVo> {
     /**
      * @title getTodayShowMarketVo
      * @description 获取今天销售数据
-     * @author 村头老杨头
+     * @author chuan9964
      * @updateTime 2021/6/30 9:34
      * @throws
      */
@@ -30,7 +30,7 @@ public interface ShowMarketMapper extends Mapper<ShowMarketVo> {
     /**
      * @title
      * @description 查询周数据
-     * @author 村头老杨头
+     * @author chuan9964
      * @updateTime 2021/6/30 10:51
      * @throws
      */
@@ -39,7 +39,7 @@ public interface ShowMarketMapper extends Mapper<ShowMarketVo> {
     /**
      * @title
      * @description 根据时间查询分类商品的销售量
-     * @author 村头老杨头
+     * @author chuan9964
      * @updateTime 2021/6/30 14:30
      * @throws
      */

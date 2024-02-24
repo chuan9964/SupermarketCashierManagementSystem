@@ -1,11 +1,11 @@
 package com.xg.supermarket.vo;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName WeekVo.java
  * @Description 数据
- * @createTime 2021年06月30日 10:49:00
+ * @createTime 2023年06月30日 10:49:00
  */
 public class DataVo {
     private String key;

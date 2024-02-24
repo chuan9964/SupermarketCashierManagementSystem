@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName ReceiptsExcelTemplate.java
  * @Description 单据模板
- * @createTime 2021年06月29日 16:34:00
+ * @createTime 2023年06月29日 16:34:00
  */
 public class ReceiptsExcelTemplate {
     private HSSFWorkbook workbook;

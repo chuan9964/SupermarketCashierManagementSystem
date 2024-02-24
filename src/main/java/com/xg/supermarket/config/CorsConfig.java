@@ -6,11 +6,11 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName CorsConfig.java
  * @Description 实现基本的跨域请求
- * @createTime 2021年06月28日 16:23:00
+ * @createTime 2023年06月28日 16:23:00
  */
 
 @Configuration

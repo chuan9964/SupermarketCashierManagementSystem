@@ -1,11 +1,11 @@
 package com.xg.supermarket.vo;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName ShowMarketVo.java
  * @Description 首页销售数据展示
- * @createTime 2021年06月30日 09:30:00
+ * @createTime 2023年06月30日 09:30:00
  */
 public class ShowMarketVo {
     private Double todayPrice;

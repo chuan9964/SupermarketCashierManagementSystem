@@ -9,11 +9,11 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName PermsMapper.java
  * @Description 获取权限
- * @createTime 2021年07月01日 15:24:00
+ * @createTime 2023年07月01日 15:24:00
  */
 @Repository
 public interface PermsMapper extends Mapper<Perms> {

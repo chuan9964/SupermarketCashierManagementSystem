@@ -12,11 +12,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName ShiroConfig.java
  * @Description Shiro配置
- * @createTime 2021年07月01日 08:47:00
+ * @createTime 2023年07月01日 08:47:00
  */
 @Configuration
 public class ShiroConfig {

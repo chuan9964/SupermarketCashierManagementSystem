@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName CostomRealm.java
  * @Description 自定义Realm
- * @createTime 2021年07月01日 08:52:00
+ * @createTime 2023年07月01日 08:52:00
  */
 
 public class CostomRealm extends AuthorizingRealm {

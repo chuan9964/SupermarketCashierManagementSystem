@@ -7,11 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName ShowMarketService.java
  * @Description 显示销售数据
- * @createTime 2021年06月30日 09:35:00
+ * @createTime 2023年06月30日 09:35:00
  */
 public interface ShowMarketService {
     ShowMarketVo getTodayShowMarket(Date date);

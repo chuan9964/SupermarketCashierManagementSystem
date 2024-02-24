@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 村头老杨头
+ * @author chuan9964
  * @version 1.0.0
  * @ClassName OrderController.java
  * @Description 订单控制器
- * @createTime 2021年06月25日 14:47:00
+ * @createTime 2023年06月25日 14:47:00
  */
 @Controller
 public class OrderController {
@@ -40,8 +40,8 @@ public class OrderController {
     /**
      * @title order
      * @description 返回订单管理视图
-     * @author 村头老杨头
-     * @updateTime 2021/6/28 8:51
+     * @author chuan9964
+     * @updateTime 2023/6/28 8:51
      * @throws
      */
     @RequiresPermissions("order:view")
@@ -53,8 +53,8 @@ public class OrderController {
     /**
      * @title createOrder
      * @description 根据用户传递的挂单编号创建订单
-     * @author 村头老杨头
-     * @updateTime 2021/6/25 14:49
+     * @author chuan9964
+     * @updateTime 2023/6/25 14:49
      * @throws
      */
     @RequiresPermissions("order:create")
@@ -69,8 +69,8 @@ public class OrderController {
     /**
      * @title payOrder
      * @description 订单支付
-     * @author 村头老杨头
-     * @updateTime 2021/6/26 15:00
+     * @author chuan9964
+     * @updateTime 2023/6/26 15:00
      * @throws
      */
     @RequiresPermissions("order:payOrder")

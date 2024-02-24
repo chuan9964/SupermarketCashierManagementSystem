@@ -8,11 +8,11 @@
 //import java.util.concurrent.TimeUnit;
 //
 ///**
-// * @author 村头老杨头
+// * @author chuan9964
 //// * @version 1.0.0
 // * @ClassName RedisUtil.java
 // * @Description redis工具
-// * @createTime 2021年07月02日 10:40:00
+// * @createTime 2023年07月02日 10:40:00
 // */
 //@Component
 //public class RedisUtil {
