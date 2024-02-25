@@ -30,15 +30,29 @@ public class CashierGoodsVo {
      */
     private String code;
 
+
+    /**
+     * 商品图片
+     */
+    private String img;
+
     public CashierGoodsVo() {
     }
 
-    public CashierGoodsVo(String name, BigDecimal price, Integer number, Integer gid, String code) {
+    public CashierGoodsVo(String name, BigDecimal price, Integer number, Integer gid, String code,String img) {
         this.name = name;
         this.price = price;
         this.number = number;
         this.gid = gid;
         this.code = code;
+        this.img = img;
+    }
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getName() {

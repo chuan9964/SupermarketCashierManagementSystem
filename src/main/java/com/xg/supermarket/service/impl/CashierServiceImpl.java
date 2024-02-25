@@ -75,7 +75,7 @@ public class CashierServiceImpl implements CashierService {
                         }
 
                         if (goods != null) {
-                            ((List) ConstantsConfig.cashierMap.get(no).get(pageNum)).add(new CashierGoodsVo(goods.getName(), goods.getPrice(), 1, goods.getGid(), goods.getCode()));
+                            ((List) ConstantsConfig.cashierMap.get(no).get(pageNum)).add(new CashierGoodsVo(goods.getName(), goods.getPrice(), 1, goods.getGid(), goods.getCode(),goods.getImg()));
                         }
                     }
                 }

@@ -30,6 +30,7 @@ $(function () {
             success(res){
                 //渲染数据
                 let list = res.data.goods;
+                console.log(list)
                 if(list){
                     $("#cashierGoods").html("");
                     let total = 0;
