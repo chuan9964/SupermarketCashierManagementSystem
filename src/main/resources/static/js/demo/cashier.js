@@ -36,7 +36,7 @@ $(function () {
                     let total = 0;
                     for(let vo of list){
                         total+= vo.number*vo.price;
-                        let el = "<tr code="+vo.code+" ><th data-field='name'>"+vo.name+"</th><th data-field='price' data-width='80'>&yen;"+vo.price+"</th><th data-field='number' data-width='200' data-align='center'><div class='input-group'><span class='input-group-btn'>" +
+                        let el = "<tr code="+vo.code+" ><th data-field='code' style='color: #9c9c9c'>"+vo.code+"</th><th><img style='border-radius: 50%' width='40px' height='40px' gageaxax-height: 100%;' src="+vo.img+"></th><th data-field='name'>"+vo.name+"</th><th data-field='price' data-width='80'>&yen;"+vo.price+"</th><th data-field='number' data-width='200' data-align='center'><div class='input-group'><span class='input-group-btn'>" +
                             "<button type='button' style='margin-bottom: 0px' class='btn btn-primary'  onclick='subGoods("+vo.code+")' >-</button></span>" +
                             "<input type='text' style='width: 60px;text-align: center' class='form-control' value='"+vo.number+"' >" +
                             "<span class='input-group-btn'> <button type='button' style='margin-bottom: 0px' class='btn btn-primary' onclick='sendCode("+vo.code+")' >+" +
