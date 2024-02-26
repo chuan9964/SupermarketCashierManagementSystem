@@ -28,9 +28,9 @@ public class GoodsController {
     @RequiresPermissions("goods:view")
     @RequestMapping("goods")
     public String goods(Map map, HttpServletRequest request){
-        CodeModel addsp = CodeFactory.getCodeModel("addsp", request.getSession().getId());
-        String s = JSON.toJSONString(addsp);
-        map.put("img", CodeUtil.CreateQRCode(s));
+//        CodeModel addsp = CodeFactory.getCodeModel("addsp", request.getSession().getId());
+//        String s = JSON.toJSONString(addsp);
+//        map.put("img", CodeUtil.CreateQRCode(s));
         map.put("gcs",categoryService.listAll());
         return "goods";
     }
