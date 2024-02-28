@@ -167,6 +167,7 @@ $(function () {
                 $("#ss").html("0.00");
                 $("#zl").html("0.00");
                 $("#myModal5").modal("hide");
+                if (res.code == 200) $("#goods").html("");
                 console.log(res);
             }
         });
