@@ -84,7 +84,7 @@ public class OrderServiceImpl implements OrderService {
         for (BigDecimal price : prices) {
             totalPrice = totalPrice.add(price);
         }
-        if(order.getPrice().compareTo(totalPrice)!=0){
+        if(order.getPrice().compareTo(totalPrice)>0){
             throw new BizException("支付金额和订单金额不正确");
         }
         List<Opt> opts = new ArrayList<>();
