@@ -24,7 +24,7 @@
             <div class="col-sm-3">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>收银信息</h5>
+                        <h5>商品信息</h5>
                     </div>
                     <div>
                         <div class="row">
@@ -34,14 +34,13 @@
 <!--                                        <input type="text" placeholder="商品搜索" class="form-control" id="key"> <span class="input-group-btn"> <button type="button" id="goods_search" class="btn btn-primary">搜索-->
 <!--                                            </button> </span>-->
 <!--                                    </div>-->
-
                                 </div>
                             </div>
                         </div>
                         <div class="full-height-scroll row">
-                            <div id="s_goods" style="min-height: 150px" class="table-responsive col-sm-10 col-sm-offset-1">
-                                <table class="table table-striped table-hover">
-                                    <tbody id="goods">
+                            <div id="s_goods" style="min-height: 150px;margin-top: 24px" class="table-responsive col-sm-10 col-sm-offset-1">
+                                <table class="table table-striped table-hover" style="border: 0px;background-color: white">
+                                    <tbody id="goods" style="font-size: 19px">
 
                                     </tbody>
                                 </table>
@@ -49,7 +48,7 @@
                         </div>
                         <div class="ibox-content no-padding border-left-right" style="text-align: center">
                             <input type="text" hidden id="no" th:value="${no}">
-                            <img alt="image" class="img-responsive" th:src="@{img/a3.jpg}" style="display: inline-block;padding: 10px;min-width: 80%">
+<!--                            <img alt="image" class="img-responsive" th:src="@{img/a3.jpg}" style="display: inline-block;padding: 10px;min-width: 80%">-->
                         </div>
                     </div>
                 </div>

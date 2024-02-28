@@ -30,7 +30,6 @@ $(function () {
             success(res){
                 //渲染数据
                 let list = res.data.goods;
-                console.log(list)
                 if(list){
                     $("#cashierGoods").html("");
                     let total = 0;
@@ -174,6 +173,27 @@ $(function () {
     });
 
 })
+
+/*查询商品信息*/
+function selectGoods(code){
+    $.ajax("/goods/findGoods",{
+        data:{key:code},
+        success(res){
+            let goods = res.data;
+            console.log(goods);
+            $("#goods").html("");
+            goods.forEach(item=>{
+                let el = "<tr><td colspan='2' align='center'><img src="+item.img+" width='300px' height='300px' ></td></tr>"
+                    + "<tr><td colspan='2' align='center' height='70px'>" + item.code + "</td></tr>"
+                    + "<tr><td align='right'>商品名称：</td><td align='left'>" + item.name + "</td></tr>"
+                    + "<tr><td align='right'>价格：</td><td  align='left'>" + item.price + "</td></tr>"
+                    + "<tr><td align='right'>规格：</td><td  align='left'>" + item.specification + "</td></tr>"
+                    + "<tr><td align='right'>产地：</td><td  align='left'>" + item.manufacturer + "</td></tr>"
+                $("#goods").append(el);
+            })
+        }
+    })
+}
 /*显示金额*/
 function showTotalPrice() {
     $("#ss").html(getTotalPrice());
@@ -218,6 +238,7 @@ function sendCode(code) {
     $.ajax("/code/jscode",{
         data:{no:no,type:"sy",code:code},
         success(){
+            selectGoods(code);
             //提示
         }
     });
