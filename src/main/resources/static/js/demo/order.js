@@ -139,17 +139,15 @@ function tableHeight() {
     window.operateEvents = {
         "click #edit": function (e, value, row, index) {
             /*详情*/
-            $("#title").html("修改商品");
-            $("#gid").val(row.gid);
-            $("#code").val(row.code);
-            $("#name").val(row.name);
-            $("#details").val(row.details);
-            $("#img").val(row.img);
-            $("#price").val(row.price);
-            $("#gcid").val(row.gcid);
-            $("#specification").val(row.specification);
-            $("#manufacturer").val(row.manufacturer);
-            reqUrl = "goods/updateGoods"
+            console.log(row);
+            $("#title").html("订单详情");
+            $("#oid").val(row.oid);
+            $("#ono").text(row.ono);
+            $("#price").text(row.price);
+            $("#createTime").text(row.createTime);
+            $("#operator").text(row.operator);
+            let status = row.status==1?'未完成':'已完成';
+            $("#status").text(status);
             $("#myModal5").modal("show");
             // window.location.href = "/getOneCadreInfo/" + row.id;//跳转新增页面
         }
