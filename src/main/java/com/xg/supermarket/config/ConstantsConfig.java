@@ -14,7 +14,7 @@ public class ConstantsConfig {
     public final static Map<String, Map> map = new HashMap();
     /*收银商品数据*/
     public final static Map<String, Map> cashierMap = new HashMap();
-    public final static String FILE_UPLOAD_DIR = "D:/upload/";
+    public final static String FILE_UPLOAD_DIR = "C:/supermarket_upload/";
     public final static String INPUT_NET_IP = getIntranetIp();
     public final static String OUTER_NET_IP = "http://"+getInternetIp(); //外网ip
     public final static String PORT = "8080";
