@@ -42,7 +42,7 @@ public class FileUtil {
             //后端的String转成json
             FileUpload fileUpload = new FileUpload();
             fileUpload.setPath(file.getAbsolutePath());
-            fileUpload.setUrl(url+"/uploadFile/"+ newName);
+            fileUpload.setUrl("/uploadFile/"+ newName);
             fileUpload.setFileName(oldName);
             fileUpload.setCreateTime(new Date());
             return fileUpload;
