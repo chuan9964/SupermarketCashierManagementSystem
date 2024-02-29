@@ -63,7 +63,21 @@ $(function () {
             {
                 title: '状态',
                 field: 'status',
-                sortable: false
+                sortable: false,
+                formatter:function (value,item,index){
+                    if (value == 1){
+                        return '未完成';
+                    }else{
+                        return '已完成';
+                    }
+                },
+                cellStyle:function (value,item,index){
+                    if (value == '未完成'){
+                        return {css:{"color":"red"}};
+                    }else{
+                        return {css:{"color":"green"}};
+                    }
+                }
             },
             {
                 title: '操作',
