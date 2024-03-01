@@ -2,6 +2,7 @@ package com.xg.supermarket.service;
 
 import com.github.pagehelper.PageInfo;
 import com.xg.supermarket.pojo.Order;
+import com.xg.supermarket.pojo.OrderGoods;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -38,4 +39,11 @@ public interface OrderService {
      * @throws
      */
     PageInfo<Order> pageOrder(Integer pageNum,Integer pageSize, String ono, Double minPrice, Double maxPrice, String startTime, String endTime, Integer status, String operator);
+
+    /**
+     * 根据订单编号查询订单详情信息
+     * @param oid
+     * @return
+     */
+    List<OrderGoods> selectOrderByOId(Integer oid);
 }

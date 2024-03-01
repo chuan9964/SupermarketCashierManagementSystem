@@ -13,10 +13,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
@@ -64,6 +61,17 @@ public class OrderController {
         Subject subject = SecurityUtils.getSubject();
         User user = (User) subject.getPrincipal();
         return ReMapUtil.success(orderService.createOrder(request.getSession().getId(),ono,user.getRealName()));
+    }
+
+    /**
+     * 根据订单编号查询订单详情信息
+     * @param oid
+     * @return
+     */
+    @GetMapping("/order/selectOrderByOId")
+    @ResponseBody
+    public ReMap selectOrderByOId(@RequestParam("oid") Integer oid){
+        return ReMapUtil.success(orderService.selectOrderByOId(oid));
     }
 
     /**

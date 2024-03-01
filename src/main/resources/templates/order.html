@@ -76,43 +76,48 @@
                 <div class="modal-body" style="background-color: #FFF;">
                     <div class="row form-body form-horizontal m-t">
                         <div class="col-md-12">
-                            <form id="myform">
+                            <form id="myform" style="color: grey">
                                 <input type="text" hidden id="oid" name="oid">
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label">订单编号：</label>
-                                    <div class="col-sm-5">
+                                    <label class="col-sm-2 control-label">订单编号：</label>
+                                    <div class="col-sm-4">
                                         <label name="ono" id="ono" class="control-label"></label>
                                     </div>
-                                    <div class="col-sm-3">
-                                        <div id="goodsImg">手机扫码绑定</div>
-
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">订单价格：</label>
-                                    <div class="col-sm-5">
-                                        <label name="price" id="price" class="control-label"></label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">创建时间：</label>
-                                    <div class="col-sm-5">
+                                    <label class="col-sm-2 control-label">创建时间：</label>
+                                    <div class="col-sm-4">
                                         <label id="createTime" class="control-label" name="createTime"></label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label">操作人：</label>
-                                    <div class="col-sm-5">
+                                    <label class="col-sm-2 control-label">订单总价格：</label>
+                                    <div class="col-sm-2">
+                                        <label name="price" id="price" class="control-label" style="color: red;font-size: 18px"></label>
+                                    </div>
+                                    <label class="col-sm-2 control-label">操作人：</label>
+                                    <div class="col-sm-2">
                                         <label id="operator" class="control-label" name="operator"></label>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">状态：</label>
-                                    <div class="col-sm-5">
+                                    <label class="col-sm-2 control-label">状态：</label>
+                                    <div class="col-sm-2">
                                         <label id="status" class="control-label" name="status"></label>
                                     </div>
                                 </div>
                             </form>
+                                <table id="goodsOrder" class="table table-hover table-striped" data-height="700" width="90%" style="margin: 0 auto" data-mobile-responsive="true">
+                                    <thead>
+                                    <tr>
+                                        <th data-field="code" data-width="150">商品编号</th>
+                                        <th data-field="img" data-width="50"></th>
+                                        <th data-field="name">商品名称</th>
+                                        <th data-field="price" data-width="90">零售价（元）</th>
+                                        <th data-field="number" data-width="140">数量</th>
+                                        <th data-field="total" data-width="100">总金额</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="goodsOrderDetail">
+
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>

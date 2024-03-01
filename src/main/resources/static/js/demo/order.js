@@ -157,11 +157,38 @@ function tableHeight() {
             $("#title").html("订单详情");
             $("#oid").val(row.oid);
             $("#ono").text(row.ono);
-            $("#price").text(row.price);
+            $("#price").text("￥"+row.price);
             $("#createTime").text(row.createTime);
             $("#operator").text(row.operator);
             let status = row.status==1?'未完成':'已完成';
             $("#status").text(status);
+            $.ajax("/order/selectOrderByOId", {
+                headers: {
+                    contentType: "application/x-www-form-urlencoded",
+                },
+                data: {"oid":row.oid},
+                method: "get",
+                success(res) {
+                    //渲染数据
+                    let list = res.data;
+                    console.log(list);
+                    if (list) {
+                        $("#goodsOrderDetail").html("");
+                        let total = 0;
+                        for (let vo of list) {
+                            total += vo.number * vo.price;
+                            let el = "<tr code=" + vo.code + " >" +
+                                "<th data-field='code' style='color: #9c9c9c'>" + vo.code + "</th>" +
+                                "<th><img style='border-radius: 50%' width='40px' height='40px' gageaxax-height: 100%;' src=" + vo.img + "></th>" +
+                                "<th data-field='name'>" + vo.name + "</th>" +
+                                "<th data-field='price' data-width='80'>&yen;" + vo.price + "</th>" +
+                                "<th data-field='number' data-width='200' data-align='center'>" + vo.number + "</th>" +
+                                "<th data-field='total' data-width='80'>&yen;" + total + "</th></tr>";
+                            $("#goodsOrderDetail").append(el);
+                        }
+                    }
+                }
+            });
             $("#myModal5").modal("show");
             // window.location.href = "/getOneCadreInfo/" + row.id;//跳转新增页面
         }

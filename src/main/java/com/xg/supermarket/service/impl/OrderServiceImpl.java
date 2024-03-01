@@ -10,6 +10,7 @@ import com.xg.supermarket.mapper.OrderMapper;
 import com.xg.supermarket.pojo.Opt;
 import com.xg.supermarket.pojo.Order;
 import com.xg.supermarket.pojo.OrderDetails;
+import com.xg.supermarket.pojo.OrderGoods;
 import com.xg.supermarket.service.OrderService;
 import com.xg.supermarket.utils.DateUtil;
 import com.xg.supermarket.vo.CashierGoodsVo;
@@ -126,5 +127,12 @@ public class OrderServiceImpl implements OrderService {
         PageHelper.startPage(pageNum,pageSize);
         List<Order> orders = orderMapper.selectByExample(example);
         return new PageInfo<>(orders);
+    }
+
+    @Override
+    public List<OrderGoods> selectOrderByOId(Integer oid) {
+
+        List<OrderGoods> orderDetails = detailsMapper.selectOrderByOId(oid);
+        return orderDetails;
     }
 }
