@@ -16,6 +16,11 @@
     <link th:href="@{css/animate.css}" rel="stylesheet">
     <link th:href="@{css/style.css}" rel="stylesheet">
 
+    <style>
+        .hidden-div{
+            display:none;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -127,30 +132,52 @@
                     <h4 class="modal-title">支付方式</h4>
                 </div>
                 <div class="modal-body">
+
                     <div style="display: flex;justify-content: space-around">
                         <!--<button class="btn btn-primary dim btn-large-dim" type="button">现
                         </button>-->
-                        <button class="btn btn-warning dim btn-large-dim" style="background-color: #1AAD19;border-color:#98E861; box-shadow:inset 0px 0px 0px #98E861, 0px 5px 0px 0px #98E861, 0px 10px 5px #999999; " type="button">微
-                        </button>
+<!--                        <button class="btn btn-warning dim btn-large-dim" style="background-color: #1AAD19;border-color:#98E861; box-shadow:inset 0px 0px 0px #98E861, 0px 5px 0px 0px #98E861, 0px 10px 5px #999999; " type="button">微-->
+<!--                        </button>-->
 
-                        <!--<button class="btn btn-danger  dim btn-large-dim" style="background-color: #0E78FF;border-color:#00A0E8; box-shadow:inset 0px 0px 0px #00A0E8, 0px 5px 0px 0px #00A0E8, 0px 10px 5px #999999; " type="button">支
-                        </button>-->
-                        <button class="btn btn-primary  dim btn-large-dim" type="button">刷</button>
+                        <div style="align-content: center">
+                            <p>
+                                <img alt="image" class="img-responsive" th:src="@{img/a3.jpg}" style="display: inline-block;padding: 10px;width: 270px">
+                            </p>
+
+                            <p>
+                                <h1 style="text-align: center">微信扫码支付</h1>
+                            </p>
+                        </div>
+                        <div style="align-content: center">
+                            <p>
+                                <img alt="image" class="img-responsive" th:src="@{img/a8.jpg}" style="display: inline-block;padding: 10px;width: 270px">
+                            </p>
+                            <p>
+                                <h1 style="text-align: center">会员刷卡支付</h1>
+                            </p>
+                        </div>
                     </div>
-                    <div id="zf" style="display: flex;justify-content: space-around">
-                        <!--<div><input type="text" id="xj" /></div>-->
-                        <div><input type="text" id="wx" /></div>
+                    <hr style="color: grey">
+                    <h4 class="modal-title" style="color: red;text-align: center;font-size: 35px">
+                        待支付：￥<span id="dzf">00</span>
+                    </h4>
+                    <!-- 使用把高度设置为0，并且隐藏溢出，实现隐藏，并且可以隐藏输入-->
+                    <div id="zf" style="display: block;height: 0; overflow: hidden">
+                        <div><input type="text" id="xj" /></div>
+                        <!--<div><input type="text" id="wx" /></div>-->
                         <!--<div><input type="text" id="zfb" /></div>-->
-                        <div><input type="text" id="sk" /></div>
+                        <!--<div><input type="text" id="sk" /></div>-->
+                        <!--会员卡卡号-->
+                        <div><input type="text" id="cardID"></div>
                     </div>
-                    <div style="margin: 20px">
+                    <div class="hidden-div" style="margin: 20px">
                         <div style="line-height: 50px;font-weight: bold;font-size: 30px">应收：&yen;<span id="ys" style="padding-left: 10px">0.00</span></div>
                         <div style="line-height: 50px;font-weight: bold;font-size: 30px">实收：&yen;<span id="ss" style="padding-left: 10px">0.00</span></div>
                         <div style="line-height: 50px;font-weight: bold;font-size: 30px">找零：&yen;<span id="zl" style="padding-left: 10px">0.00</span></div>
                     </div>
 
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer hidden-div">
                     <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
                     <button type="button" id="order-save" class="btn btn-primary">保存</button>
                 </div>
