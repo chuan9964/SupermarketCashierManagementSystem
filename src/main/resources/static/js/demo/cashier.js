@@ -20,7 +20,16 @@ $(function () {
         locale: 'zh-CN',//中文支持,
     });
     setInterval(function () {
-        $("#code_search").focus();
+        // 判断支付框是否弹出
+        // 1.未弹出：条码扫描输入框获取焦点
+        // 2.弹出 ：卡号扫描输入框获取焦点
+        let displayValue = $('#myModal5').css('display');
+        if (displayValue === 'none'){
+            $("#code_search").focus();
+        }else{
+            $("#cardID").focus();
+        }
+
         $.ajax("/cashier/goods",{
             headers:{
                 contentType: "application/x-www-form-urlencoded",
@@ -43,8 +52,14 @@ $(function () {
                         $("#cashierGoods").append(el);
                     }
 
-                    $("#total").html((parseInt(total*100)/100).toFixed(2));
-                    $("#ys").html((parseInt(total*100)/100).toFixed(2));
+                    let toFixed = (parseInt(total*100)/100).toFixed(2);
+                    $("#total").html(toFixed);
+                    $("#ys").html(toFixed);
+                    // 输入金额的文本框 动态赋值
+                    $("#xj").val(toFixed);
+                    // 弹出的待支付页面 动态赋值
+                    $("#dzf").html(toFixed)
+
                 }
                 let keys = res.data.hang_one_keys;
                 if (keys){
@@ -134,7 +149,10 @@ $(function () {
         prices= [];
         if($("#xj").val()){
             typeids[i] = 1;
-            prices[i] = parseInt($("#xj").val())-(getTotalPrice()-parseInt($("#ys").html()));
+            // 目前两个支付方式都使用了xj支付字段。
+            // 所以不能用这一行了，这一行影响输入的金额数(比如金额数有.50的情况)
+            //prices[i] = parseInt($("#xj").val())-(getTotalPrice()-parseInt($("#ys").html()));
+            prices[i] = $("#xj").val();
             i++;
         }
         if($("#wx").val()){
