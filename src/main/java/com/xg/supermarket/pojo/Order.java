@@ -38,6 +38,11 @@ public class Order {
      */
     private Integer status;
 
+    /**
+     * 支付状态
+     */
+    private boolean isPay;
+
     public Order() {
     }
 
@@ -155,5 +160,19 @@ public class Order {
      */
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    /**
+     * 获取支付状态
+     * @return 状态
+     */
+    public boolean isPay() {
+        return isPay;
+    }
+    /**
+     * 设置支付状态
+     */
+    public void setPayStatus(boolean isPay) {
+        this.isPay = isPay;
     }
 }
