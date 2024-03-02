@@ -149,7 +149,10 @@ $(function () {
         prices= [];
         if($("#xj").val()){
             typeids[i] = 1;
-            prices[i] = parseInt($("#xj").val())-(getTotalPrice()-parseInt($("#ys").html()));
+            // 目前两个支付方式都使用了xj支付字段。
+            // 所以不能用这一行了，这一行影响输入的金额数(比如金额数有.50的情况)
+            //prices[i] = parseInt($("#xj").val())-(getTotalPrice()-parseInt($("#ys").html()));
+            prices[i] = $("#xj").val();
             i++;
         }
         if($("#wx").val()){
