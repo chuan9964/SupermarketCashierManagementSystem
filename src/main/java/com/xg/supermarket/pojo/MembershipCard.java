@@ -1,0 +1,114 @@
+package com.xg.supermarket.pojo;
+
+import javax.persistence.Column;
+import java.math.BigDecimal;
+import java.util.Date;
+
+public class MembershipCard {
+
+    /**
+     * 会员卡id
+     */
+    private Integer mid;
+
+    /**
+     * 会员卡号
+     */
+    private String mno;
+
+    /**
+     * 余额
+     */
+    private BigDecimal balance;
+
+    /**
+     * 姓名
+     */
+    private String name;
+
+    /**
+     * 手机号
+     */
+    private String phone;
+
+    /**
+     * 办卡时间
+     */
+    @Column(name = "applycard_time")
+    private Date applyCardTime;
+
+    /**
+     * 是否启用
+     */
+    @Column(name = "isenable")
+    private Integer isEnable;
+
+    public MembershipCard() {
+    }
+
+    public MembershipCard(Integer mid, String mno, BigDecimal balance, String name, String phone, Date applyCardTime, Integer isEnable) {
+        this.mid = mid;
+        this.mno = mno;
+        this.balance = balance;
+        this.name = name;
+        this.phone = phone;
+        this.applyCardTime = applyCardTime;
+        this.isEnable = isEnable;
+    }
+
+    public Integer getMid() {
+        return mid;
+    }
+
+    public void setMid(Integer mid) {
+        this.mid = mid;
+    }
+
+    public String getMno() {
+        return mno;
+    }
+
+    public void setMno(String mno) {
+        this.mno = mno;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Date getApplyCardTime() {
+        return applyCardTime;
+    }
+
+    public void setApplyCardTime(Date applyCardTime) {
+        this.applyCardTime = applyCardTime;
+    }
+
+    public Integer getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(Integer isEnable) {
+        this.isEnable = isEnable;
+    }
+}
