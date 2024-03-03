@@ -207,7 +207,7 @@ window.operateEvents = {
     "click #del": function (e, value, row, index) {
 
         swal({
-            title: "您确定要删除："+row.name,
+            title: "您确定要删除此会员卡："+row.mno +"吗？",
             text: "删除后将无法恢复，请谨慎操作！",
             type: "warning",
             showCancelButton: true,
@@ -227,9 +227,9 @@ function del(row) {
             contentType: "application/x-www-form-urlencoded",
         },
         method: "post",
-        data:{gid:row.gid},
+        data:{mid:row.mid},
         success(){
-            swal("删除成功！", "您已经永久删除了"+row.name+"。", "success");
+            swal("删除成功！", "您已经永久删除了此"+row.mno+"。", "success");
             setTimeout(function () {
                 swal.close();
             },1500)

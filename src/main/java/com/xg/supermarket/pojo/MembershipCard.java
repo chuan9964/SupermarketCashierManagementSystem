@@ -1,6 +1,7 @@
 package com.xg.supermarket.pojo;
 
 import javax.persistence.Column;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -9,6 +10,7 @@ public class MembershipCard {
     /**
      * 会员卡id
      */
+    @Id
     private Integer mid;
 
     /**
