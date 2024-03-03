@@ -55,19 +55,6 @@ BS架构
 
 ##### 销售分析
 
-```json
-    //二维码数据
-    {
-        "api":"/code/confirm", //哪个接口
-        "bindPage":true, //是否是绑定扫码枪的条码
-        "des":"謾ｶ體ｶ謇ｫ遐∫ｻ大ｮ壽沖遐∵棯",
-        "nextType":"sy", //真实条码存储的位置
-        "no":"6468C99E4CFE96DE5882576226C460E2",//当前二维码是哪个用户
-        "type":"jssy", //哪个页面的二维码
-        "url":"http://192.168.10.68:8080" //服务器端的地址
-    }
-```
-
 #### 使用说明
 
 二维码生成
@@ -91,5 +78,4 @@ mvn install:install-file -Dfile=e:\QRCode-3.0.jar -DgroupId=QRCode -DartifactId=
 
 
 ## License
-
 
