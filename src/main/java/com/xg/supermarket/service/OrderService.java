@@ -46,4 +46,11 @@ public interface OrderService {
      * @return
      */
     List<OrderGoods> selectOrderByOId(Integer oid);
+
+    /**
+     *  根据订单编号生成支付码
+     * @param oid
+     * @return
+     */
+    String getOrderPeyCode(String oid);
 }

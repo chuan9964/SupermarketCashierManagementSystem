@@ -1,5 +1,6 @@
 package com.xg.supermarket.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xg.supermarket.config.ConstantsConfig;
@@ -12,6 +13,7 @@ import com.xg.supermarket.pojo.Order;
 import com.xg.supermarket.pojo.OrderDetails;
 import com.xg.supermarket.pojo.OrderGoods;
 import com.xg.supermarket.service.OrderService;
+import com.xg.supermarket.utils.CodeUtil;
 import com.xg.supermarket.utils.DateUtil;
 import com.xg.supermarket.vo.CashierGoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,5 +136,10 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderGoods> orderDetails = detailsMapper.selectOrderByOId(oid);
         return orderDetails;
+    }
+
+    @Override
+    public String getOrderPeyCode(String url) {
+        return CodeUtil.CreateQRCode(url);
     }
 }

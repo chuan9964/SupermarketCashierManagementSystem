@@ -64,6 +64,39 @@ public class OrderController {
     }
 
     /**
+     *  根据订单编号生成支付码
+     * @param oid
+     * @param request
+     * @return
+     */
+    @RequiresPermissions("order:getOrderPeyCode")
+    @PostMapping("/order/getOrderPeyCode")
+    @ResponseBody
+    public ReMap getOrderPeyCode(String oid, HttpServletRequest request){
+        // 获取协议（http或https）
+        String scheme = request.getScheme();
+
+        // 获取主机名和端口号
+        String host = request.getHeader("Host");
+        int port = request.getServerPort();
+
+        // 构建完整的URL
+        StringBuilder urlBuilder = new StringBuilder();
+        urlBuilder.append(scheme).append("://").append(host);
+
+        // 如果端口不是默认的HTTP或HTTPS端口，则添加端口号
+//        if ((scheme.equals("http") && port != 80) || (scheme.equals("https") && port != 443)) {
+//            urlBuilder.append(":").append(port);
+//        }
+
+        // 获取支付页面的url
+        urlBuilder.append("/order/getWXPay?oid=").append(oid);
+
+        String url = urlBuilder.toString();
+        return ReMapUtil.success(orderService.getOrderPeyCode(url));
+    }
+
+    /**
      * 根据订单编号查询订单详情信息
      * @param oid
      * @return

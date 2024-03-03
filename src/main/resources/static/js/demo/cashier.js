@@ -243,6 +243,17 @@ function createOrder(){
         data:{ono:uuid},
         success(res){
             oid = res.data;
+            $.ajax("/order/getOrderPeyCode",{
+                headers:{
+                    contentType: "application/x-www-form-urlencoded",
+                },
+                method: "post",
+                data:{oid:oid},
+                success(qrCode){
+                    console.log(qrCode)
+                    document.getElementById("wxPeyCode").src = qrCode.msg;
+                }
+            });
             showType();
         }
     });
