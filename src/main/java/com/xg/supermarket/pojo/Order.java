@@ -1,5 +1,7 @@
 package com.xg.supermarket.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -26,6 +28,7 @@ public class Order {
      * 创建时间
      */
     @Column(name = "create_time")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy年MM月dd日 HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
     /**

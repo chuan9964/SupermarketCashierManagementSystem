@@ -93,7 +93,9 @@ $(function () {
     /*添加条码*/
     $("#addCode").click(function () {
         let code = $("#code_search").val();
-        sendCode(code);
+        if (code != ""){
+            sendCode(code);
+        }
         $("#code_search").val("")
     })
     /*挂单*/
