@@ -11,7 +11,7 @@ public class CodeUtil {
     public static String CreateQRCode(String content){
         //计算二维码图片的高宽比
         // API文档规定计算图片宽高的方式 ，v是本次测试的版本号
-        int v =12;
+        int v =6;
         int width = 67 + 12 * (v - 1);
         int height = 67 + 12 * (v - 1);
 
