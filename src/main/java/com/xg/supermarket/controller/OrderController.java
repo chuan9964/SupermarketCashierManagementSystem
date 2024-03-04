@@ -168,8 +168,10 @@ public class OrderController {
     @RequiresPermissions("order:update")
     @GetMapping("order/updateOrder")
     @ResponseBody
-    public ModelAndView updateOrder(@RequestParam("oid") Integer oid, @RequestParam("price") BigDecimal price) {
+    public ModelAndView updateOrder(@RequestParam("oid") Integer oid, @RequestParam("price") BigDecimal price,HttpServletRequest request) {
         orderService.updateOrder(oid);
+        String cno = "cahier_1";
+        ConstantsConfig.cashierMap.get(request.getSession().getId()).put(cno,new ArrayList<>());
         return new ModelAndView("paySuccess").addObject("price",price);
     }
 
