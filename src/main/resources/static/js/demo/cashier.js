@@ -137,7 +137,6 @@ $(function () {
                 let date = new Date();
                 uuid = "cashier_"+date.getTime();
                 break;
-
         }
     })
 //    现金
@@ -264,7 +263,10 @@ function createOrder(){
                                 if (res.data.isPay ==2){
                                     clearInterval(interval);//停止循环定时
                                     $("#order-save").trigger("click");
-                                    console.log("clearInterval...")
+                                    swal("支付成功", "您已成功支付，感谢您的光临！", "success");
+                                    setTimeout(function () {
+                                        swal.close();
+                                    },3000)
                                 }
                             }
                         })
