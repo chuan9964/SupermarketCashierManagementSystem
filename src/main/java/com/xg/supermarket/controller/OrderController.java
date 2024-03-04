@@ -9,6 +9,7 @@ import com.xg.supermarket.service.OrderService;
 import com.xg.supermarket.utils.ReMap;
 import com.xg.supermarket.utils.ReMapUtil;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +103,7 @@ public class OrderController {
      * @param oid
      * @return
      */
-    @RequiresPermissions("order:getWXPay")
+//    @RequiresPermissions("order:getWXPay")
     @GetMapping("/order/getWXPay")
     @ResponseBody
     public ModelAndView getWXPay(@RequestParam("oid") Integer oid){
@@ -165,13 +166,13 @@ public class OrderController {
      * @param oid
      * @return
      */
-    @RequiresPermissions("order:update")
+//    @RequiresPermissions("order:update")
     @GetMapping("order/updateOrder")
     @ResponseBody
     public ModelAndView updateOrder(@RequestParam("oid") Integer oid, @RequestParam("price") BigDecimal price,HttpServletRequest request) {
         orderService.updateOrder(oid);
-        String cno = "cahier_1";
-        ConstantsConfig.cashierMap.get(request.getSession().getId()).put(cno,new ArrayList<>());
+        //String cno = "cahier_1";
+        //ConstantsConfig.cashierMap.get(request.getSession().getId()).put(cno,new ArrayList<>());
         return new ModelAndView("paySuccess").addObject("price",price);
     }
 

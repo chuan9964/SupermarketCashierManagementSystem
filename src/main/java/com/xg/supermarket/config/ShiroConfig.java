@@ -30,6 +30,11 @@ public class ShiroConfig {
 //      无需认证
         map.put("/doLogin","anon");
         map.put("/code/**","anon");
+        //订单确认支付
+        map.put("/order/getWXPay","anon");
+        map.put("/order/selectOrder","anon");
+        map.put("/order/updateOrder","anon");
+
         //静态资源放行
         map.put("/js/**","anon");
         map.put("/css/**","anon");

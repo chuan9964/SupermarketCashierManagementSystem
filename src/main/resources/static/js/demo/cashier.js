@@ -263,8 +263,8 @@ function createOrder(){
                                 console.log(res.data);
                                 if (res.data.status ==2){
                                     clearInterval(interval);//停止循环定时
-                                    $("#myModal5").modal("hide");
-                                    $("#goods").html("");
+                                    $("#order-save").trigger("click");
+                                    console.log("clearInterval...")
                                 }
                             }
                         })
