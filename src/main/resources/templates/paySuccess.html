@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,12 +80,11 @@ http://shop.sluck.cn/Content/bootstrap.min.css">
 			河北东方学院支付系统
 		</div>
 		<div class="circle-checkbox">
-			<img src="weixin.png" width="120" alt="">
+			<img th:src="@{../img/weixin.png}" width="120" alt="">
 			<p style="font-size: 25px;">支付成功</p>
 		</div>
 		<!-- 支付确认容器 -->
 		<div class="payment-confirm-container">
-
 			<p>
 			<div>自助购物的账单付费</div>
 			<div class="payment-amount">
