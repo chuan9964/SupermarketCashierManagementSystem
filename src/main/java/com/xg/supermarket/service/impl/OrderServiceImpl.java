@@ -142,4 +142,14 @@ public class OrderServiceImpl implements OrderService {
     public String getOrderPeyCode(String url) {
         return CodeUtil.CreateQRCode(url);
     }
+
+    @Override
+    public int updateOrder(Integer oid) {
+        return orderMapper.updateOrder(oid);
+    }
+
+    @Override
+    public Order selectOrder(Integer oid) {
+        return orderMapper.selectByPrimaryKey(oid);
+    }
 }

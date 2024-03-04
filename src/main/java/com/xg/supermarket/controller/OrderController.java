@@ -14,6 +14,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
@@ -97,7 +98,20 @@ public class OrderController {
     }
 
     /**
-     * 根据订单编号查询订单详情信息
+     * 将订单信息传递到确认订单页面
+     * @param oid
+     * @return
+     */
+    @RequiresPermissions("order:getWXPay")
+    @GetMapping("/order/getWXPay")
+    @ResponseBody
+    public ModelAndView getWXPay(@RequestParam("oid") Integer oid){
+        Map map = new HashMap();
+        map.put("order",orderService.selectOrder(oid));
+        return new ModelAndView ("confirmPay",map);
+    }
+    /**
+     * 根据订单编号查询订单和商品详情信息
      * @param oid
      * @return
      */
@@ -134,4 +148,29 @@ public class OrderController {
         map.put("rows",pageInfo.getList());
         return map;
     }
+
+    /**
+     * 根据订单编号查询订单列表
+     * @param oid
+     * @return
+     */
+    @GetMapping("/order/selectOrder")
+    @ResponseBody
+    public ReMap selectOrder(@RequestParam("oid") Integer oid){
+        return ReMapUtil.success(orderService.selectOrder(oid));
+    }
+
+    /**
+     * 根据订单编号进行修改订单状态
+     * @param oid
+     * @return
+     */
+    @RequiresPermissions("order:update")
+    @GetMapping("order/updateOrder")
+    @ResponseBody
+    public ModelAndView updateOrder(@RequestParam("oid") Integer oid, @RequestParam("price") BigDecimal price) {
+        orderService.updateOrder(oid);
+        return new ModelAndView("paySuccess").addObject("price",price);
+    }
+
 }

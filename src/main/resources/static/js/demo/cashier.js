@@ -252,6 +252,23 @@ function createOrder(){
                 success(qrCode){
                     console.log(qrCode)
                     document.getElementById("wxPeyCode").src = qrCode.msg;
+                    let interval=setInterval(function (){
+                        $.ajax("/order/selectOrder",{
+                            headers:{
+                                contentType: "application/x-www-form-urlencoded",
+                            },
+                            method: "get",
+                            data:{oid:oid},
+                            success(res){
+                                console.log(res.data);
+                                if (res.data.status ==2){
+                                    clearInterval(interval);//停止循环定时
+                                    $("#myModal5").modal("hide");
+                                    $("#goods").html("");
+                                }
+                            }
+                        })
+                    },1000)
                 }
             });
             showType();

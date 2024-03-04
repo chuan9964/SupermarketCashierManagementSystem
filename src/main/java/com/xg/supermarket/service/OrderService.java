@@ -53,4 +53,18 @@ public interface OrderService {
      * @return
      */
     String getOrderPeyCode(String oid);
+
+    /**
+     * 根据订单编号修改订单状态
+     * @param oid
+     * @return
+     */
+    int updateOrder(Integer oid);
+
+    /**
+     * 根据订单id查询订单表
+     * @param oid
+     * @return
+     */
+    Order selectOrder(Integer oid);
 }

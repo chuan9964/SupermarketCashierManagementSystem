@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>支付确认</title>
+		<!-- 引入Bootstrap CSS -->
+		<link rel="stylesheet" href="
+http://shop.sluck.cn/Content/bootstrap.min.css">
+		<style>
+			/* 自定义顶部栏样式 */
+			.topbar {
+				background-color: #333;
+				color: #fff;
+				padding: 10px 0;
+				text-align: center;
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			/* 自定义支付确认容器样式 */
+			.payment-confirm-container {
+				padding: 20px;
+				border-radius: 10px;
+			}
+
+			/* 自定义支付金额样式 */
+			.payment-amount {
+				font-size: 50px;
+				font-weight: bold;
+			}
+
+			/* 自定义确认支付按钮样式 */
+			.btn-custom {
+				background-color: #007bff;
+				color: #fff;
+				padding: 10px 20px;
+				font-size: 16px;
+				border-radius: 5px;
+			}
+
+			/* 修改全屏背景颜色为灰色 */
+			body {
+				text-align: center;
+				margin: 0;
+				/* 移除body的外边距，确保背景全屏 */
+				background-color: #f2f2f2;
+				/* 或者您想要的灰色 */
+				font-family: 'Arial', sans-serif;
+				/* 添加字体，使页面看起来更统一 */
+			}
+
+			/* 修改支付按钮为微信支付按钮的颜色 */
+			.btn-custom {
+				
+				background-color: #07C160;
+				/* 微信支付的按钮绿色 */
+				color: #fff;
+				padding: 10px 20px;
+				font-size: 16px;
+				border-radius: 5px;
+				display: block;
+				/* 确保按钮块级显示，以便内容居中 */
+				text-align: center;
+				/* 确保按钮内容居中显示 */
+				margin: auto;
+				/* 水平居中按钮 */
+				width: 340px;
+				/* 可选：设置按钮宽度，以便更好地控制布局 */
+			}
+
+			.group {
+				background-color: white;
+				padding: 5%;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部栏 -->
+		<div class="topbar">
+			河北东方学院支付系统
+		</div>
+
+		<!-- 支付确认容器 -->
+		<div class="payment-confirm-container">
+			<p style="display: none" id="oid" th:text="${order.oid}"></p>
+			<p>
+				<div>自助购物的账单付费</div>
+				<div class="payment-amount">
+					<a>￥</a><a id="price" th:text="${order.price}"></a>
+				</div>
+
+			</p>
+
+			<p>
+				<div style="padding: 3%; background-color: white; overflow: auto;">  
+				    <span style="color: gray; float: left;">收款方</span>  
+				    <span style="float: right;">自助购物系统</span>  
+				</div>
+			</p>
+			<p style="text-align: left; color: gray; font-size: 80%;">支付方式</p>
+			<p>
+				<div style="padding: 3%; background-color: white; overflow: auto;">
+				    <span style=" float: left;">模拟支付</span>  
+				    <span style="float: right;">✅</span>  
+				</div>
+			</p>
+			
+		</div>
+		<div>
+			<a th:href="@{'/order/updateOrder?oid='+${order.oid}+'&price='+${order.price}}" style="color: white;text-decoration:none;">
+				<button class="btn btn-custom btn-block">确认支付</button>
+			</a>
+		</div>
+
+		<!-- 全局js -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+	</body>
+</html>
