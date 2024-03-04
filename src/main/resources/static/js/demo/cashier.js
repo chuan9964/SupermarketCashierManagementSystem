@@ -137,6 +137,10 @@ $(function () {
                 let date = new Date();
                 uuid = "cashier_"+date.getTime();
                 break;
+            case 32:
+                //结算
+                $("#createOrder").trigger("click");
+                break;
         }
     })
 //    现金
