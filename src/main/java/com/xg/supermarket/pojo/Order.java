@@ -44,7 +44,7 @@ public class Order {
     /**
      * 支付状态
      */
-    private boolean isPay;
+    private Integer isPay;
 
     public Order() {
     }
@@ -55,6 +55,16 @@ public class Order {
         this.createTime = createTime;
         this.operator = operator;
         this.status = status;
+    }
+
+    public Order(Integer oid, String ono, BigDecimal price, Date createTime, String operator, Integer status, Integer isPay) {
+        this.oid = oid;
+        this.ono = ono;
+        this.price = price;
+        this.createTime = createTime;
+        this.operator = operator;
+        this.status = status;
+        this.isPay = isPay;
     }
 
     /**
@@ -169,13 +179,13 @@ public class Order {
      * 获取支付状态
      * @return 状态
      */
-    public boolean isPay() {
+    public Integer getIsPay() {
         return isPay;
     }
     /**
      * 设置支付状态
      */
-    public void setPayStatus(boolean isPay) {
+    public void setIsPay(Integer isPay) {
         this.isPay = isPay;
     }
 }

@@ -16,6 +16,6 @@ import tk.mybatis.mapper.common.Mapper;
 @Repository
 public interface OrderMapper extends Mapper<Order> {
 
-    @Update("UPDATE `order` set `status` = 2 where oid=#{oid}")
-    int updateOrder(@Param("oid") Integer oid);
+    @Update("UPDATE `order` set is_pay = 2 where oid=#{oid}")
+    int updateOrderIsPay(@Param("oid") Integer oid);
 }

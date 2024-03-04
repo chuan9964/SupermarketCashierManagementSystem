@@ -261,7 +261,7 @@ function createOrder(){
                             data:{oid:oid},
                             success(res){
                                 console.log(res.data);
-                                if (res.data.status ==2){
+                                if (res.data.isPay ==2){
                                     clearInterval(interval);//停止循环定时
                                     $("#order-save").trigger("click");
                                     console.log("clearInterval...")

@@ -59,7 +59,7 @@ public interface OrderService {
      * @param oid
      * @return
      */
-    int updateOrder(Integer oid);
+    int updateOrderIsPay(Integer oid);
 
     /**
      * 根据订单id查询订单表

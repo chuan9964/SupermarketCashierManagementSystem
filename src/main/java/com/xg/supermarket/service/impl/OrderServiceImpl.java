@@ -144,8 +144,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int updateOrder(Integer oid) {
-        return orderMapper.updateOrder(oid);
+    public int updateOrderIsPay(Integer oid) {
+        return orderMapper.updateOrderIsPay(oid);
     }
 
     @Override
