@@ -266,7 +266,26 @@ function createOrder(){
                 success(qrCode){
                     console.log(qrCode)
                     document.getElementById("wxPeyCode").src = qrCode.msg;
-                    selectOrder();
+                    let interval=setInterval(function (){
+                        $.ajax("/order/selectOrder",{
+                            headers:{
+                                contentType: "application/x-www-form-urlencoded",
+                            },
+                            method: "get",
+                            data:{oid:oid},
+                            success(res){
+                                console.log(res.data);
+                                if (res.data.isPay ==2){
+                                    clearInterval(interval);//停止循环定时
+                                    $("#order-save").trigger("click");
+                                    swal("支付成功", "您已成功支付，感谢您的光临！", "success");
+                                    setTimeout(function () {
+                                        swal.close();
+                                    },3000)
+                                }
+                            }
+                        })
+                    },1000)
                 }
             });
             showType();
@@ -274,29 +293,6 @@ function createOrder(){
     });
 }
 
-/*查询订单支付状态*/
-function selectOrder(){
-    let interval=setInterval(function (){
-        $.ajax("/order/selectOrder",{
-            headers:{
-                contentType: "application/x-www-form-urlencoded",
-            },
-            method: "get",
-            data:{oid:oid},
-            success(res){
-                console.log(res.data);
-                if (res.data.isPay ==2){
-                    clearInterval(interval);//停止循环定时
-                    $("#order-save").trigger("click");
-                    swal("支付成功", "您已成功支付，感谢您的光临！", "success");
-                    setTimeout(function () {
-                        swal.close();
-                    },3000)
-                }
-            }
-        })
-    },1000)
-}
 /*创建单据*/
 function showType() {
 
@@ -324,10 +320,7 @@ function cardPay(code){
                 contentType: "application/x-www-form-urlencoded",
             },
             method: "put",
-            data:{mno:code,price:price,oid:oid},
-            success(){
-                selectOrder();
-            }
+            data:{mno:code,price:price,oid:oid}
         })
 }
 /*数量减1*/
