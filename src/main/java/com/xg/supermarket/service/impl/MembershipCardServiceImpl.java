@@ -8,6 +8,7 @@ import com.xg.supermarket.mapper.OrderMapper;
 import com.xg.supermarket.pojo.MembershipCard;
 import com.xg.supermarket.service.MembershipCardService;
 import com.xg.supermarket.utils.DateUtil;
+import com.xg.supermarket.utils.SmsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,8 +81,12 @@ public class MembershipCardServiceImpl implements MembershipCardService {
      */
     @Override
     public int updateBalance(String mno, BigDecimal price, Integer oid) {
-        //更新订单状态及更新余额
-        return orderMapper.updateOrderIsPay(oid) & membershipCardMapper.updateBalance(mno,price);
+        membershipCardMapper.updateBalance(mno,price);
+        MembershipCard membershipCard = membershipCardMapper.selectCardByMno(mno);
+        //发送短信告知消费者
+        SmsUtil.SendSms(membershipCard.getPhone(),price,membershipCard.getBalance());
+        //更新订单状态
+        return orderMapper.updateOrderIsPay(oid);
     }
 
     private void regMembershipCard(MembershipCard membershipCard, boolean flag){
