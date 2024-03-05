@@ -3,16 +3,15 @@ package com.xg.supermarket.controller;
 import com.github.pagehelper.PageInfo;
 import com.xg.supermarket.pojo.MembershipCard;
 import com.xg.supermarket.service.MembershipCardService;
+import com.xg.supermarket.service.OrderService;
 import com.xg.supermarket.utils.ReMap;
 import com.xg.supermarket.utils.ReMapUtil;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,5 +71,18 @@ public class MembershipCardController {
     public ReMap delMembershipCard(Integer mid){
         membershipCardService.delMembershipCard(mid);
         return ReMapUtil.success("删除会员卡成功").setStatus("success");
+    }
+
+    /**
+     * 使用会员卡刷卡支付，更新会员卡余额
+     * @param mno
+     * @param price
+     * @return
+     */
+    @PutMapping("/membershipCard/updateBalance")
+    @ResponseBody
+    public ReMap updateBalance(String mno,BigDecimal price,Integer oid){
+        membershipCardService.updateBalance(mno,price,oid);
+        return ReMapUtil.success("支付成功").setStatus("success");
     }
 }

@@ -204,7 +204,6 @@ function selectGoods(code){
         data:{key:code},
         success(res){
             let goods = res.data;
-            console.log(goods);
             $("#goods").html("");
             goods.forEach(item=>{
                 let el = "<tr><td colspan='2' align='center'><img src="+item.img+" width='300px' height='300px' ></td></tr>"
@@ -256,6 +255,22 @@ function createOrder(){
                     console.log(qrCode)
                     document.getElementById("wxPeyCode").src = qrCode.msg;
                     let interval=setInterval(function (){
+                        let mno = $("#cardID").val();
+                        let price = $("#xj").val();
+                        if(mno != ""){
+                            console.log(mno);
+                            console.log(price);
+                            $.ajax("/membershipCard/updateBalance",{
+                                headers:{
+                                    contentType: "application/x-www-form-urlencoded",
+                                },
+                                method: "put",
+                                data:{mno:mno,price:price,oid:oid},
+                                success(){
+                                    $("#cardID").val("");
+                                }
+                            })
+                        }
                         $.ajax("/order/selectOrder",{
                             headers:{
                                 contentType: "application/x-www-form-urlencoded",

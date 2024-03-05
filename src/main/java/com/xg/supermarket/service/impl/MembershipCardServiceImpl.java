@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xg.supermarket.exception.BizException;
 import com.xg.supermarket.mapper.MembershipCardMapper;
+import com.xg.supermarket.mapper.OrderMapper;
 import com.xg.supermarket.pojo.MembershipCard;
 import com.xg.supermarket.service.MembershipCardService;
 import com.xg.supermarket.utils.DateUtil;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.util.StringUtil;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -21,6 +23,9 @@ public class MembershipCardServiceImpl implements MembershipCardService {
 
     @Autowired
     private MembershipCardMapper membershipCardMapper;
+
+    @Autowired
+    private OrderMapper orderMapper;
 
 
     @Override
@@ -58,12 +63,25 @@ public class MembershipCardServiceImpl implements MembershipCardService {
     @Override
     public int updateMembershipCard(MembershipCard membershipCard) {
         regMembershipCard(membershipCard,true);
-        return membershipCardMapper.updateBalance(membershipCard);
+        return membershipCardMapper.updateByPrimaryKeySelective(membershipCard);
     }
 
     @Override
     public int delMembershipCard(Integer mid) {
         return membershipCardMapper.deleteByPrimaryKey(mid);
+    }
+
+    /**
+     * 使用会员卡刷卡支付，更新会员卡余额
+     * @param mno
+     * @param price
+     * @param oid
+     * @return
+     */
+    @Override
+    public int updateBalance(String mno, BigDecimal price, Integer oid) {
+        //更新订单状态及更新余额
+        return orderMapper.updateOrderIsPay(oid) & membershipCardMapper.updateBalance(mno,price);
     }
 
     private void regMembershipCard(MembershipCard membershipCard, boolean flag){
