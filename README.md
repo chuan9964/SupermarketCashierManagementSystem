@@ -31,7 +31,6 @@ BS架构
 ```
 后端 SpringBoot+Maven+Mysql+Shiro+Redis
 前端 Bootstrip+Echarts+Thymeleaf+Ajax
-手机端扫码枪 uni-app
 ```
 
 #### 功能分析
@@ -66,6 +65,10 @@ mvn install:install-file -Dfile=e:\QRCode-3.0.jar -DgroupId=QRCode -DartifactId=
 ## 缩略图
 
 ![](https://img2022.cnblogs.com/blog/588112/202203/588112-20220318094009105-143112882.png)
-![](C:\Users\28897\AppData\Roaming\Typora\typora-user-images\image-20240308075001300.png)
-![](C:\Users\28897\AppData\Roaming\Typora\typora-user-images\image-20240308075031418.png)![](C:\Users\28897\AppData\Roaming\Typora\typora-user-images\image-20240308075136811.png)![](C:\Users\28897\AppData\Roaming\Typora\typora-user-images\image-20240308080417482.png)![image-20240308080641424](C:\Users\28897\AppData\Roaming\Typora\typora-user-images\image-20240308080641424.png)![image-20240308081051388](C:\Users\28897\AppData\Roaming\Typora\typora-user-images\image-20240308081051388.png)
+![](file/image-20240308075001300.png)
+![](file/image-20240308075031418.png)
+![](file/image-20240308075136811.png)
+![](file/image-20240308080417482.png)
+![](file/image-20240308080641424.png)
+![](file/image-20240308081051388.png)
 
