@@ -8,6 +8,7 @@
     <img src="https://img.shields.io/badge/springboot-3.x-blue.svg"/>
 </p>
 
+## 项目开发日志： [Issues进度列表](https://github.com/chuan9964/SupermarketCashierManagementSystem/issues?q=)。
 
 ## 环境
 
